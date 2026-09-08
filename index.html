@@ -51,7 +51,7 @@
             z-index: 2;
         }
 
-        /* PNG Logo Image Container (Centered) */
+        /* PNG Logo Image Container */
         .gta-logo-img {
             width: 100%;
             max-width: 500px;
@@ -98,19 +98,33 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .photo-box img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            border: 3px solid #00f0ff;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.9);
-        }
-
         .story {
             font-size: 1.1rem;
-            line-height: 1.6;
+            line-height: 1.7;
             color: #f0f0f0;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .story p {
+            margin-bottom: 12px;
+        }
+
+        /* Photo Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
             margin: 20px 0;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid #00f0ff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.8);
         }
 
         .voucher {
@@ -119,6 +133,7 @@
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(255, 0, 127, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.3);
+            margin-top: 15px;
         }
 
         .voucher h2 {
@@ -129,7 +144,7 @@
             text-shadow: 2px 2px 0px #000;
         }
 
-        /* Discreet Test Button at the very bottom */
+        /* Test Button */
         .test-btn {
             position: fixed;
             bottom: 15px;
@@ -155,6 +170,9 @@
                 font-size: 2.2rem;
                 padding: 10px 20px;
             }
+            .gallery {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -171,24 +189,28 @@
 
         <!-- Hidden Birthday Voucher View (Reveals automatically at midnight) -->
         <div id="birthday-content">
-            <div class="photo-box">
-                <img src="gta-photo.jpg" alt="GTA Style Photo">
+            
+            <div class="story">
+                <p>Moj mali beboljinjo, znam koliko si dugo čekao da dođe ova luda igrica o kojoj i ja nenamjerno znam više od prosječnog čovjeka. 😂</p>
+                <p>Baš kao Lucija i Jason (od sada Sobi i Deki) naša vezica je jedna velika avanturica puna ludih uspomena i uspona i padova. Želim nam još puno skinny bitcheva i 100% naranača bez pulpe votkica, nezaboravnih putovanjčeka i dobre glazbice. 🍹🎶</p>
+                <p>Hvala ti što postojiš i volim te najviše na svijetu. Znam da smo još na početku našeg malog putovanja i jedva čekam provesti ostatak životeka uz osobu kakva si ti. ❤️</p>
+                <p>18.11. je blizu, ali do tada uživaj u ovih par fotkica koje sam skinula sa službene GTA 6 stranice:</p>
             </div>
 
-            <div class="story">
-                <p>
-                    From all our crazy adventures to every late-night mission together, you've been my favorite partner in crime. Here’s to another year of creating memories and conquering the world together! ❤️
-                </p>
+            <!-- GTA VI Photo Gallery -->
+            <div class="gallery">
+                <img src="gta1.jpg" alt="GTA VI Shot 1">
+                <img src="gta2.jpg" alt="GTA VI Shot 2">
             </div>
 
             <div class="voucher">
                 <h2>GTA VI VOUCHER 🎮</h2>
-                <p>This voucher entitles you to 1 copy of <strong>Grand Theft Auto VI</strong> as soon as it drops!</p>
+                <p>Ovaj kupon ti jamči 1 primjerak <strong>Grand Theft Auto VI</strong> čim izađe!</p>
             </div>
         </div>
     </div>
 
-    <!-- Hidden Test Button for You to Preview the Reveal Anytime -->
+    <!-- Hidden Test Button for Preview -->
     <button class="test-btn" onclick="triggerMidnightReveal()">⚡ Test Reveal</button>
 
     <script>
@@ -210,7 +232,6 @@
                 }));
             }
 
-            // Vice City Color Palette: Cyan, Pink, Yellow, Purple
             fire(0.25, { spread: 26, startVelocity: 55, colors: ['#00f0ff', '#ff007f'] });
             fire(0.2, { spread: 60, colors: ['#ffe600', '#ffffff'] });
             fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8, colors: ['#ff007f', '#7928ca'] });
