@@ -1,12 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday!</title>
-    <!-- Imports the official GTA Pricedown font -->
-    <link href="https://fonts.cdnfonts.com/css/pricedown" rel="stylesheet">
+    <title>Sretan Rođendan!</title>
+    <!-- Imports GTA Font Fallbacks -->
+    <link href="https://db.onlinewebfonts.com/c/741e6c38827f8830722254e488d5e896?family=Pricedown" rel="stylesheet">
     <style>
+        @font-face {
+            font-family: 'Pricedown';
+            src: url('https://db.onlinewebfonts.com/t/741e6c38827f8830722254e488d5e896.woff2') format('woff2'),
+                 url('https://db.onlinewebfonts.com/t/741e6c38827f8830722254e488d5e896.ttf') format('truetype');
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -14,55 +20,71 @@
         }
 
         body {
-            background-color: #0b0b12;
+            /* Embeds GTA Vice City Sunset Background */
+            background: #000 url('https://images.alphacoders.com/134/1343118.jpeg') no-repeat center center fixed;
+            background-size: cover;
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            text-align: center;
             padding: 20px;
         }
 
-        .card {
-            max-width: 650px;
+        .container {
             width: 100%;
-            background: #14141e;
-            padding: 40px 25px;
-            border-radius: 20px;
-            box-shadow: 0 0 30px rgba(255, 0, 127, 0.3);
-            border: 2px solid #ff007f;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* GTA Title Style */
-        h1 {
-            font-family: 'Pricedown', 'Segoe UI', sans-serif;
-            font-size: 3.2rem;
-            margin-bottom: 20px;
-            color: #00f0ff;
-            letter-spacing: 2px;
-            text-shadow: 3px 3px 0px #ff007f;
-            text-transform: uppercase;
+        /* Top Right / Centered GTA Logo Header */
+        .gta-logo-wrapper {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 30px;
+            filter: drop-shadow(0px 8px 15px rgba(0,0,0,0.8));
         }
 
-        /* GTA Countdown Style */
-        #timer {
-            font-family: 'Pricedown', 'Segoe UI', sans-serif;
-            font-size: 3.5rem;
-            color: #fff;
-            margin: 20px 0;
-            letter-spacing: 3px;
-            text-shadow: 3px 3px 0px #ff007f, 0 0 15px rgba(255, 0, 127, 0.6);
+        .gta-svg-text {
+            font-family: 'Pricedown', 'Impact', sans-serif;
+            text-transform: lowercase;
+            fill: #ffffff;
+            stroke: #000000;
+            stroke-width: 8px;
+            paint-order: stroke fill;
+            stroke-linejoin: round;
         }
 
-        /* Hidden content until timer reaches zero */
+        /* 25 GTA VI Gradient Style */
+        .number-25 {
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            font-size: 110px;
+            font-weight: 900;
+            fill: url(#gta-gradient);
+            stroke: #ffffff;
+            stroke-width: 4px;
+            filter: drop-shadow(4px 4px 0px #000);
+        }
+
+        /* Revealed Content Container */
         #birthday-content {
             display: none;
+            width: 100%;
+            background: rgba(15, 12, 25, 0.88);
+            backdrop-filter: blur(12px);
+            padding: 35px 25px;
+            border-radius: 20px;
+            box-shadow: 0 0 35px rgba(255, 0, 127, 0.4);
+            border: 2px solid #ff007f;
+            text-align: center;
         }
 
         .photo-box {
-            margin: 25px 0;
+            margin: 20px 0;
         }
 
         .photo-box img {
@@ -70,31 +92,29 @@
             height: auto;
             border-radius: 12px;
             border: 3px solid #00f0ff;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.9);
         }
 
         .story {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             line-height: 1.6;
-            color: #e0e0e0;
+            color: #f0f0f0;
             margin: 20px 0;
-            text-align: center;
         }
 
-        /* GTA Voucher Style */
         .voucher {
             background: linear-gradient(135deg, #ff007f 0%, #7928ca 100%);
-            padding: 25px 20px;
+            padding: 25px;
             border-radius: 15px;
-            margin-top: 30px;
+            margin-top: 25px;
             box-shadow: 0 8px 25px rgba(255, 0, 127, 0.4);
-            border: 1px solid #ffffff33;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .voucher h2 {
-            font-family: 'Pricedown', 'Segoe UI', sans-serif;
+            font-family: 'Pricedown', 'Impact', sans-serif;
             font-size: 2.2rem;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             letter-spacing: 1px;
             text-shadow: 2px 2px 0px #000;
         }
@@ -107,19 +127,34 @@
 </head>
 <body>
 
-    <div class="card">
-        <!-- Countdown View -->
-        <div id="countdown-screen">
-            <h1>Something Special is Coming</h1>
-            <div id="timer">Loading...</div>
+    <div class="container">
+        <!-- Official Custom GTA Style Header SVG -->
+        <div class="gta-logo-wrapper">
+            <svg viewBox="0 0 500 220" width="100%" height="100%">
+                <defs>
+                    <!-- GTA VI Vice City Gradient for '25' -->
+                    <linearGradient id="gta-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#00f0ff" />
+                        <stop offset="50%" stop-color="#ff007f" />
+                        <stop offset="100%" stop-color="#ffe600" />
+                    </linearGradient>
+                </defs>
+
+                <!-- Text Line 1: sretan -->
+                <text x="250" y="55" text-anchor="middle" class="gta-svg-text" font-size="58">sretan</text>
+                
+                <!-- Text Line 2: rockas -->
+                <text x="250" y="115" text-anchor="middle" class="gta-svg-text" font-size="58">rockas</text>
+                
+                <!-- GTA Style '25' Number -->
+                <text x="250" y="205" text-anchor="middle" class="number-25">25</text>
+            </svg>
         </div>
 
-        <!-- Birthday Content View -->
+        <!-- Hidden Birthday Voucher View (Reveals automatically on 9.9.2026) -->
         <div id="birthday-content">
-            <h1>Happy Birthday!</h1>
-            
             <div class="photo-box">
-                <img src="gta-photo.jpg" alt="GTA 6 Style Photo">
+                <img src="gta-photo.jpg" alt="GTA Style Photo">
             </div>
 
             <div class="story">
@@ -129,37 +164,26 @@
             </div>
 
             <div class="voucher">
-                <h2>GTA VI Voucher 🎮</h2>
+                <h2>GTA VI VOUCHER 🎮</h2>
                 <p>This voucher entitles you to 1 copy of <strong>Grand Theft Auto VI</strong> as soon as it drops!</p>
             </div>
         </div>
     </div>
 
     <script>
-        // Target: Sept 9, 2026, 00:00:00 Zagreb Time (CEST = UTC+2)
+        // Target Date: Sept 9, 2026, 00:00:00 Zagreb Time
         const targetDate = new Date("2026-09-09T00:00:00+02:00").getTime();
-
-        const timerElement = document.getElementById("timer");
-        const countdownScreen = document.getElementById("countdown-screen");
         const birthdayContent = document.getElementById("birthday-content");
 
-        const timerInterval = setInterval(() => {
+        function checkTime() {
             const now = new Date().getTime();
-            const distance = targetDate - now;
-
-            if (distance <= 0) {
-                clearInterval(timerInterval);
-                countdownScreen.style.display = "none";
+            if (targetDate - now <= 0) {
                 birthdayContent.style.display = "block";
-            } else {
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                timerElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
             }
-        }, 1000);
+        }
+
+        checkTime();
+        setInterval(checkTime, 1000);
     </script>
 </body>
 </html>
