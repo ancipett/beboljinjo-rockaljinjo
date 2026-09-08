@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sretan Rođendan!</title>
-    <!-- Imports GTA Font Fallbacks -->
+    <!-- Imports Pricedown Font -->
     <link href="https://db.onlinewebfonts.com/c/741e6c38827f8830722254e488d5e896?family=Pricedown" rel="stylesheet">
     <style>
         @font-face {
@@ -19,33 +19,48 @@
             padding: 0;
         }
 
+        /* Pure CSS Rendered Vice City Sunset Background */
         body {
-            /* Embeds GTA Vice City Sunset Background */
-            background: #000 url('https://images.alphacoders.com/134/1343118.jpeg') no-repeat center center fixed;
-            background-size: cover;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #0f051d 0%, #290a38 40%, #ff007f 70%, #ff5e00 88%, #ffb700 100%);
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 800px;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
+            padding: 30px 20px;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        /* Top Right / Centered GTA Logo Header */
+        /* Vice City Retro Grid Overlay */
+        body::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30vh;
+            background: linear-gradient(rgba(255, 0, 127, 0.25) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255, 0, 127, 0.25) 1px, transparent 1px);
+            background-size: 35px 35px;
+            transform: perspective(250px) rotateX(60deg);
+            transform-origin: bottom center;
+            pointer-events: none;
+        }
+
+        /* Top Right Logo Section */
+        .top-right-header {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            z-index: 2;
+        }
+
         .gta-logo-wrapper {
             width: 100%;
-            max-width: 600px;
-            margin-bottom: 30px;
+            max-width: 380px;
             filter: drop-shadow(0px 8px 15px rgba(0,0,0,0.8));
         }
 
@@ -59,7 +74,6 @@
             stroke-linejoin: round;
         }
 
-        /* 25 GTA VI Gradient Style */
         .number-25 {
             font-family: 'Impact', 'Arial Black', sans-serif;
             font-size: 110px;
@@ -70,21 +84,44 @@
             filter: drop-shadow(4px 4px 0px #000);
         }
 
-        /* Revealed Content Container */
-        #birthday-content {
-            display: none;
+        /* Bottom Centered Counter Container */
+        .bottom-counter-wrapper {
             width: 100%;
-            background: rgba(15, 12, 25, 0.88);
-            backdrop-filter: blur(12px);
-            padding: 35px 25px;
-            border-radius: 20px;
-            box-shadow: 0 0 35px rgba(255, 0, 127, 0.4);
-            border: 2px solid #ff007f;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+            z-index: 2;
+        }
+
+        #timer {
+            font-family: 'Pricedown', 'Impact', sans-serif;
+            font-size: 3.2rem;
+            color: #ffffff;
+            background: rgba(10, 5, 20, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 12px 35px;
+            border-radius: 50px;
+            border: 2px solid #00f0ff;
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 0px #000;
             text-align: center;
         }
 
-        .photo-box {
-            margin: 20px 0;
+        /* Revealed Birthday Content Container */
+        #birthday-content {
+            display: none;
+            width: 100%;
+            max-width: 650px;
+            background: rgba(15, 12, 25, 0.92);
+            backdrop-filter: blur(12px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 35px rgba(255, 0, 127, 0.6);
+            border: 2px solid #ff007f;
+            text-align: center;
+            margin: auto;
+            z-index: 2;
         }
 
         .photo-box img {
@@ -96,7 +133,7 @@
         }
 
         .story {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             line-height: 1.6;
             color: #f0f0f0;
             margin: 20px 0;
@@ -104,9 +141,8 @@
 
         .voucher {
             background: linear-gradient(135deg, #ff007f 0%, #7928ca 100%);
-            padding: 25px;
+            padding: 20px;
             border-radius: 15px;
-            margin-top: 25px;
             box-shadow: 0 8px 25px rgba(255, 0, 127, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
@@ -119,20 +155,24 @@
             text-shadow: 2px 2px 0px #000;
         }
 
-        .voucher p {
-            font-size: 1.1rem;
-            font-weight: 600;
+        @media (max-width: 768px) {
+            .top-right-header {
+                justify-content: center;
+            }
+            #timer {
+                font-size: 2.2rem;
+                padding: 10px 20px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Official Custom GTA Style Header SVG -->
+    <!-- Top Right Logo Section -->
+    <div class="top-right-header">
         <div class="gta-logo-wrapper">
             <svg viewBox="0 0 500 220" width="100%" height="100%">
                 <defs>
-                    <!-- GTA VI Vice City Gradient for '25' -->
                     <linearGradient id="gta-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
                         <stop offset="0%" stop-color="#00f0ff" />
                         <stop offset="50%" stop-color="#ff007f" />
@@ -150,40 +190,54 @@
                 <text x="250" y="205" text-anchor="middle" class="number-25">25</text>
             </svg>
         </div>
+    </div>
 
-        <!-- Hidden Birthday Voucher View (Reveals automatically on 9.9.2026) -->
-        <div id="birthday-content">
-            <div class="photo-box">
-                <img src="gta-photo.jpg" alt="GTA Style Photo">
-            </div>
-
-            <div class="story">
-                <p>
-                    From all our crazy adventures to every late-night mission together, you've been my favorite partner in crime. Here’s to another year of creating memories and conquering the world together! ❤️
-                </p>
-            </div>
-
-            <div class="voucher">
-                <h2>GTA VI VOUCHER 🎮</h2>
-                <p>This voucher entitles you to 1 copy of <strong>Grand Theft Auto VI</strong> as soon as it drops!</p>
-            </div>
+    <!-- Hidden Birthday Voucher View (Reveals automatically at midnight) -->
+    <div id="birthday-content">
+        <div class="photo-box">
+            <img src="gta-photo.jpg" alt="GTA Style Photo">
         </div>
+
+        <div class="story">
+            <p>
+                From all our crazy adventures to every late-night mission together, you've been my favorite partner in crime. Here’s to another year of creating memories and conquering the world together! ❤️
+            </p>
+        </div>
+
+        <div class="voucher">
+            <h2>GTA VI VOUCHER 🎮</h2>
+            <p>This voucher entitles you to 1 copy of <strong>Grand Theft Auto VI</strong> as soon as it drops!</p>
+        </div>
+    </div>
+
+    <!-- Bottom Centered Countdown Clock -->
+    <div class="bottom-counter-wrapper">
+        <div id="timer">Loading...</div>
     </div>
 
     <script>
         // Target Date: Sept 9, 2026, 00:00:00 Zagreb Time
         const targetDate = new Date("2026-09-09T00:00:00+02:00").getTime();
+        const timerElement = document.getElementById("timer");
         const birthdayContent = document.getElementById("birthday-content");
 
-        function checkTime() {
+        const timerInterval = setInterval(() => {
             const now = new Date().getTime();
-            if (targetDate - now <= 0) {
-                birthdayContent.style.display = "block";
-            }
-        }
+            const distance = targetDate - now;
 
-        checkTime();
-        setInterval(checkTime, 1000);
+            if (distance <= 0) {
+                clearInterval(timerInterval);
+                timerElement.parentElement.style.display = "none";
+                birthdayContent.style.display = "block";
+            } else {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                timerElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+        }, 1000);
     </script>
 </body>
 </html>
