@@ -110,21 +110,36 @@
             margin-bottom: 12px;
         }
 
-        /* Photo Gallery */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin: 20px 0;
+        /* Photo Gallery Styling */
+        .photo-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin: 25px 0;
         }
 
-        .gallery img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 10px;
+        .photo-card {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 14px;
+            padding: 12px;
             border: 2px solid #00f0ff;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.8);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .photo-caption {
+            margin-top: 10px;
+            font-size: 0.95rem;
+            color: #ffe600;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px #000;
+            letter-spacing: 0.5px;
         }
 
         .voucher {
@@ -133,7 +148,7 @@
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(255, 0, 127, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            margin-top: 15px;
+            margin-top: 20px;
         }
 
         .voucher h2 {
@@ -170,9 +185,6 @@
                 font-size: 2.2rem;
                 padding: 10px 20px;
             }
-            .gallery {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -194,13 +206,30 @@
                 <p>Moj mali beboljinjo, znam koliko si dugo čekao da dođe ova luda igrica o kojoj i ja nenamjerno znam više od prosječnog čovjeka. 😂</p>
                 <p>Baš kao Lucija i Jason (od sada Sobi i Deki) naša vezica je jedna velika avanturica puna ludih uspomena i uspona i padova. Želim nam još puno skinny bitcheva i 100% naranača bez pulpe votkica, nezaboravnih putovanjčeka i dobre glazbice. 🍹🎶</p>
                 <p>Hvala ti što postojiš i volim te najviše na svijetu. Znam da smo još na početku našeg malog putovanja i jedva čekam provesti ostatak životeka uz osobu kakva si ti. ❤️</p>
-                <p>18.11. je blizu, ali do tada uživaj u ovih par fotkica koje sam skinula sa službene GTA 6 stranice:</p>
+                <p>Uživaj u našim fotkicama iz Vice Cityja:</p>
             </div>
 
-            <!-- GTA VI Photo Gallery -->
-            <div class="gallery">
-                <img src="gta1.jpg" alt="GTA VI Shot 1">
-                <img src="gta2.jpg" alt="GTA VI Shot 2">
+            <!-- Customized GTA Photo Gallery (Updated to .jpeg) -->
+            <div class="photo-gallery">
+                
+                <!-- Photo 1 -->
+                <div class="photo-card">
+                    <img src="gta1.jpeg" alt="Vault Heist">
+                    <div class="photo-caption">MISSION PASSED: Najveći hejsteri u Vice Cityju! 💰🔫</div>
+                </div>
+
+                <!-- Photo 2 -->
+                <div class="photo-card">
+                    <img src="gta2.jpeg" alt="Cruising Tomislav">
+                    <div class="photo-caption">Najbolji suvozač i hladni Tomislav. 🚗🍺</div>
+                </div>
+
+                <!-- Photo 3 -->
+                <div class="photo-card">
+                    <img src="gta3.jpeg" alt="Lounge Chill">
+                    <div class="photo-caption">Sobi & Deki chill zona (i tvoje najjače tigraste cipele) 🐅✨</div>
+                </div>
+
             </div>
 
             <div class="voucher">
