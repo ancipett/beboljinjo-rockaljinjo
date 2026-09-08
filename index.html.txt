@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #111;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            background: #1e1e1e;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 2px solid #ff007f; /* GTA Vice City vibe pink border */
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #00f0ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Countdown Style */
+        #timer {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff007f;
+            margin: 20px 0;
+            letter-spacing: 3px;
+        }
+
+        /* Hidden content until countdown ends */
+        #birthday-content {
+            display: none;
+        }
+
+        .photo-container {
+            margin: 20px 0;
+        }
+
+        .photo-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 3px solid #00f0ff;
+        }
+
+        .story-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #ddd;
+            margin: 20px 0;
+            text-align: justify;
+        }
+
+        /* Voucher Box */
+        .voucher {
+            background: linear-gradient(135deg, #ff007f, #7928ca);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 25px;
+            box-shadow: 0 5px 15px rgba(255, 0, 127, 0.4);
+        }
+
+        .voucher h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .voucher p {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Countdown View -->
+        <div id="countdown-screen">
+            <h1>Something Special is Coming...</h1>
+            <div id="timer">00d 00h 00m 00s</div>
+            <p style="color: #aaa;">Counting down to Midnight (Zagreb Time)</p>
+        </div>
+
+        <!-- Hidden Gift View (Revealed when countdown finishes) -->
+        <div id="birthday-content">
+            <h1> Happy Birthday! </h1>
+            
+            <div class="photo-container">
+                <!-- Replace with your GTA style photo name if different -->
+                <img src="gta-photo.jpg" alt="GTA 6 Style Photo">
+            </div>
+
+            <div class="story-text">
+                <!-- Write your story here -->
+                <p>
+                    From all our crazy adventures to every late-night mission together, you've been my favorite player two. Here's to another year of creating memories and conquering the world together!
+                </p>
+            </div>
+
+            <div class="voucher">
+                <h2> GTA VI Pre-Order Voucher 🎮</h2>
+                <p>This voucher entitles you to 1 copy of <strong>Grand Theft Auto VI</strong> upon release! </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Target Date: Sept 9, 2026, 00:00:00 in Zagreb time zone (UTC+2 / CEST)
+        const targetDate = new Date("2026-09-09T00:00:00+02:00").getTime();
+
+        const timerElement = document.getElementById("timer");
+        const countdownScreen = document.getElementById("countdown-screen");
+        const birthdayContent = document.getElementById("birthday-content");
+
+        const updateCountdown = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            // Time calculations
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display time
+            timerElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            // If countdown is finished
+            if (distance < 0) {
+                clearInterval(updateCountdown);
+                countdownScreen.style.display = "none";
+                birthdayContent.style.display = "block";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
