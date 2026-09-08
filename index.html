@@ -20,68 +20,49 @@
         }
 
         body {
-            /* Uses your uploaded high-res wallpaper */
-            background: #000 url('gta-bg.png.png') no-repeat center center fixed;
+            /* Background image setup */
+            background-color: #0b0813;
+            background-image: url('gta-bg.jpg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
             background-size: cover;
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 30px 20px;
+            padding: 20px;
             overflow-x: hidden;
         }
 
-        /* Top Right Logo Section */
-        .top-right-header {
+        .main-wrapper {
             width: 100%;
+            max-width: 650px;
             display: flex;
-            justify-content: flex-end;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
             z-index: 2;
         }
 
-        .gta-logo-wrapper {
+        /* SVG Logo Image Container (Centered) */
+        .gta-logo-img {
             width: 100%;
-            max-width: 380px;
-            filter: drop-shadow(0px 8px 15px rgba(0,0,0,0.8));
-        }
-
-        .gta-svg-text {
-            font-family: 'Pricedown', 'Impact', sans-serif;
-            text-transform: lowercase;
-            fill: #ffffff;
-            stroke: #000000;
-            stroke-width: 8px;
-            paint-order: stroke fill;
-            stroke-linejoin: round;
-        }
-
-        .number-25 {
-            font-family: 'Impact', 'Arial Black', sans-serif;
-            font-size: 110px;
-            font-weight: 900;
-            fill: url(#gta-gradient);
-            stroke: #ffffff;
-            stroke-width: 4px;
-            filter: drop-shadow(4px 4px 0px #000);
-        }
-
-        /* Bottom Centered Counter Container */
-        .bottom-counter-wrapper {
-            width: 100%;
-            display: flex;
-            justify-content: center;
+            max-width: 500px;
+            height: auto;
             margin-bottom: 25px;
-            z-index: 2;
+            filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.85));
         }
 
+        /* Centered Counter Container */
         #timer {
             font-family: 'Pricedown', 'Impact', sans-serif;
             font-size: 3.2rem;
             color: #ffffff;
-            background: rgba(10, 5, 20, 0.82);
+            background: rgba(10, 5, 20, 0.85);
             backdrop-filter: blur(10px);
             padding: 12px 35px;
             border-radius: 50px;
@@ -90,9 +71,10 @@
             letter-spacing: 3px;
             text-shadow: 2px 2px 0px #000;
             text-align: center;
+            display: inline-block;
         }
 
-        /* Revealed Birthday Content Container */
+        /* Revealed Birthday Content Container (Shown at midnight) */
         #birthday-content {
             display: none;
             width: 100%;
@@ -104,8 +86,7 @@
             box-shadow: 0 0 35px rgba(255, 0, 127, 0.6);
             border: 2px solid #ff007f;
             text-align: center;
-            margin: auto;
-            z-index: 2;
+            margin-top: 20px;
         }
 
         .photo-box img {
@@ -140,9 +121,6 @@
         }
 
         @media (max-width: 768px) {
-            .top-right-header {
-                justify-content: center;
-            }
             #timer {
                 font-size: 2.2rem;
                 padding: 10px 20px;
@@ -152,57 +130,39 @@
 </head>
 <body>
 
-    <!-- Top Right Logo Section -->
-    <div class="top-right-header">
-        <div class="gta-logo-wrapper">
-            <svg viewBox="0 0 500 220" width="100%" height="100%">
-                <defs>
-                    <linearGradient id="gta-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stop-color="#00f0ff" />
-                        <stop offset="50%" stop-color="#ff007f" />
-                        <stop offset="100%" stop-color="#ffe600" />
-                    </linearGradient>
-                </defs>
+    <div class="main-wrapper">
+        <!-- Centered Custom GTA Logo SVG File -->
+        <img src="gta-logo.svg" alt="Sretan Rockas Deki 25" class="gta-logo-img">
 
-                <!-- Text Line 1: sretan -->
-                <text x="250" y="55" text-anchor="middle" class="gta-svg-text" font-size="58">sretan</text>
-                
-                <!-- Text Line 2: rockas -->
-                <text x="250" y="115" text-anchor="middle" class="gta-svg-text" font-size="58">rockas</text>
-                
-                <!-- GTA Style '25' Number -->
-                <text x="250" y="205" text-anchor="middle" class="number-25">25</text>
-            </svg>
-        </div>
-    </div>
-
-    <!-- Hidden Birthday Voucher View (Reveals automatically at midnight) -->
-    <div id="birthday-content">
-        <div class="photo-box">
-            <img src="gta-photo.jpg" alt="GTA Style Photo">
+        <!-- Centered Countdown Clock -->
+        <div id="timer-container">
+            <div id="timer">Loading...</div>
         </div>
 
-        <div class="story">
-            <p>
-                From all our crazy adventures to every late-night mission together, you've been my favorite partner in crime. Here’s to another year of creating memories and conquering the world together! ❤️
-            </p>
-        </div>
+        <!-- Hidden Birthday Voucher View (Reveals automatically at midnight) -->
+        <div id="birthday-content">
+            <div class="photo-box">
+                <img src="gta-photo.jpg" alt="GTA Style Photo">
+            </div>
 
-        <div class="voucher">
-            <h2>GTA VI VOUCHER 🎮</h2>
-            <p>This voucher entitles you to 1 copy of <strong>Grand Theft Auto VI</strong> as soon as it drops!</p>
-        </div>
-    </div>
+            <div class="story">
+                <p>
+                    From all our crazy adventures to every late-night mission together, you've been my favorite partner in crime. Here’s to another year of creating memories and conquering the world together! ❤️
+                </p>
+            </div>
 
-    <!-- Bottom Centered Countdown Clock -->
-    <div class="bottom-counter-wrapper">
-        <div id="timer">Loading...</div>
+            <div class="voucher">
+                <h2>GTA VI VOUCHER 🎮</h2>
+                <p>This voucher entitles you to 1 copy of <strong>Grand Theft Auto VI</strong> as soon as it drops!</p>
+            </div>
+        </div>
     </div>
 
     <script>
         // Target Date: Sept 9, 2026, 00:00:00 Zagreb Time
         const targetDate = new Date("2026-09-09T00:00:00+02:00").getTime();
         const timerElement = document.getElementById("timer");
+        const timerContainer = document.getElementById("timer-container");
         const birthdayContent = document.getElementById("birthday-content");
 
         const timerInterval = setInterval(() => {
@@ -211,7 +171,7 @@
 
             if (distance <= 0) {
                 clearInterval(timerInterval);
-                timerElement.parentElement.style.display = "none";
+                timerContainer.style.display = "none";
                 birthdayContent.style.display = "block";
             } else {
                 const days = Math.floor(distance / (1000 * 60 * 60 * 24));
