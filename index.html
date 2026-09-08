@@ -48,6 +48,42 @@
             transform: perspective(250px) rotateX(60deg);
             transform-origin: bottom center;
             pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Palm Trees Left & Right Silhouettes */
+        .palm-left, .palm-right {
+            position: absolute;
+            bottom: 0;
+            width: 250px;
+            height: 400px;
+            pointer-events: none;
+            z-index: 2;
+            opacity: 0.85;
+        }
+
+        .palm-left {
+            left: -30px;
+        }
+
+        .palm-right {
+            right: -30px;
+            transform: scaleX(-1); /* Flips palm tree for right side */
+        }
+
+        /* GTA Sports Car Silhouette at Bottom Center */
+        .car-silhouette {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 420px;
+            max-width: 90vw;
+            height: auto;
+            pointer-events: none;
+            z-index: 2;
+            filter: drop-shadow(0 0 15px rgba(255, 0, 127, 0.5));
+            opacity: 0.9;
         }
 
         /* Top Right Logo Section */
@@ -55,7 +91,7 @@
             width: 100%;
             display: flex;
             justify-content: flex-end;
-            z-index: 2;
+            z-index: 3;
         }
 
         .gta-logo-wrapper {
@@ -90,19 +126,19 @@
             display: flex;
             justify-content: center;
             margin-bottom: 25px;
-            z-index: 2;
+            z-index: 3;
         }
 
         #timer {
             font-family: 'Pricedown', 'Impact', sans-serif;
             font-size: 3.2rem;
             color: #ffffff;
-            background: rgba(10, 5, 20, 0.85);
+            background: rgba(10, 5, 20, 0.88);
             backdrop-filter: blur(10px);
             padding: 12px 35px;
             border-radius: 50px;
             border: 2px solid #00f0ff;
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.7);
             letter-spacing: 3px;
             text-shadow: 2px 2px 0px #000;
             text-align: center;
@@ -113,7 +149,7 @@
             display: none;
             width: 100%;
             max-width: 650px;
-            background: rgba(15, 12, 25, 0.92);
+            background: rgba(15, 12, 25, 0.94);
             backdrop-filter: blur(12px);
             padding: 30px;
             border-radius: 20px;
@@ -121,7 +157,7 @@
             border: 2px solid #ff007f;
             text-align: center;
             margin: auto;
-            z-index: 2;
+            z-index: 3;
         }
 
         .photo-box img {
@@ -163,10 +199,25 @@
                 font-size: 2.2rem;
                 padding: 10px 20px;
             }
+            .palm-left, .palm-right {
+                width: 150px;
+                height: 250px;
+            }
+            .car-silhouette {
+                width: 300px;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Palm Trees Decorative Silhouettes -->
+    <svg class="palm-left" viewBox="0 0 100 150" fill="#0d0417">
+        <path d="M10 150 Q 25 80 50 30 Q 30 20 10 25 Q 35 15 60 20 Q 75 5 90 0 Q 70 25 65 35 Q 85 40 95 55 Q 70 50 55 45 Q 60 70 50 90 Q 30 120 10 150 Z"/>
+    </svg>
+    <svg class="palm-right" viewBox="0 0 100 150" fill="#0d0417">
+        <path d="M10 150 Q 25 80 50 30 Q 30 20 10 25 Q 35 15 60 20 Q 75 5 90 0 Q 70 25 65 35 Q 85 40 95 55 Q 70 50 55 45 Q 60 70 50 90 Q 30 120 10 150 Z"/>
+    </svg>
 
     <!-- Top Right Logo Section -->
     <div class="top-right-header">
@@ -209,6 +260,11 @@
             <p>This voucher entitles you to 1 copy of <strong>Grand Theft Auto VI</strong> as soon as it drops!</p>
         </div>
     </div>
+
+    <!-- GTA Sports Car Silhouette -->
+    <svg class="car-silhouette" viewBox="0 0 300 80" fill="#0c0414">
+        <path d="M 10 55 C 30 55, 40 38, 70 35 C 100 32, 130 20, 170 20 C 210 20, 240 32, 270 38 C 285 41, 295 48, 298 55 C 300 62, 280 65, 270 65 L 30 65 C 15 65, 5 62, 10 55 Z M 50 68 A 10 10 0 1 0 50 48 A 10 10 0 1 0 50 68 Z M 240 68 A 10 10 0 1 0 240 48 A 10 10 0 1 0 240 68 Z"/>
+    </svg>
 
     <!-- Bottom Centered Countdown Clock -->
     <div class="bottom-counter-wrapper">
