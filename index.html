@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sretan Rođendan!</title>
+    <title>sretan rockas bebo!</title>
     <!-- Imports Pricedown Font -->
     <link href="https://db.onlinewebfonts.com/c/741e6c38827f8830722254e488d5e896?family=Pricedown" rel="stylesheet">
     <!-- Confetti Library -->
@@ -157,21 +157,41 @@
             text-shadow: 2px 2px 0px #000;
         }
 
-        .voucher {
-            background: linear-gradient(135deg, #ff007f 0%, #7928ca 100%);
-            padding: 20px;
+        /* Interactive Scratch-off Card Container */
+        .scratch-container {
+            position: relative;
+            width: 100%;
             border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(255, 0, 127, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            margin-top: 20px;
+            overflow: hidden;
+            border: 2px solid #00f0ff;
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
+            margin-top: 15px;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
-        .voucher h2 {
+        .scratch-container img.voucher-underneath {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .scratch-container canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .scratch-title {
             font-family: 'Pricedown', 'Impact', sans-serif;
             font-size: 2.2rem;
-            margin-bottom: 8px;
-            letter-spacing: 1px;
+            color: #ff007f;
             text-shadow: 2px 2px 0px #000;
+            margin-top: 25px;
+            margin-bottom: 5px;
         }
 
         /* Test Button */
@@ -218,45 +238,50 @@
         <div id="birthday-content">
             
             <div class="story">
-                <p>Moj mali beboljinjo, znam koliko si dugo čekao da dođe ova luda igrica o kojoj i ja nenamjerno znam više od prosječnog čovjeka. 😂</p>
-                <p>Baš kao Lucija i Jason (od sada Sobi i Deki) naša vezica je jedna velika avanturica puna ludih uspomena i uspona i padova. Želim nam još puno skinny bitcheva i 100% naranača bez pulpe votkica, nezaboravnih putovanjčeka i dobre glazbice. 🍹🎶</p>
-                <p>Hvala ti što postojiš i volim te najviše na svijetu. Znam da smo još na početku našeg malog putovanja i jedva čekam provesti ostatak životeka uz osobu kakva si ti. ❤️</p>
-                <p>Uživaj u našim fotkicama iz Vice Cityja:</p>
+                <p>Moj mali beboljinjo, znam koliko si dugo cekao da dode ova luda igrica o kojoj i ja nenamjerno znam vise od prosjecnog čovjeka.</p>
+                <p>Bas kao i od Lucie i Jasona (od sada Sobi i Deki) nasa vezica je jedna velika avanturica puna ludih uspomena i uspona i padova. Zelim nam jos puno skinny bitcheva i 100% naranaca bez pulpe votkica, nezaboravnih putovanjceka i dobre glazbice.</p>
+                <p>Hvala ti sto postojiš i volim te najvise na svijetu. Znam da smo jos na pocetku naseg malog putovanja i jedva cekam provesti ostatak zivoteka uz osobu kakva si ti. ❤️</p>
+                <p>Znam da je 18.11. jos daljeko ali evo par slikica koje sam skinula sa 100% legit GTA VI leak stranjice:</p>
             </div>
 
-            <!-- Customized GTA Photo Gallery -->
+            <!-- Customized GTA Photo Gallery (Updated to .jpeg) -->
             <div class="photo-gallery">
                 
                 <!-- Photo 1 -->
                 <div class="photo-card">
                     <img src="gta1.jpeg" alt="Vault Heist">
-                    <div class="photo-caption">MISSION PASSED: Najveći hejsteri u Vice Cityju! 💰🔫</div>
+                    <div class="photo-caption">Ovo smo mi s maljim badanjama na Szigetu sljedece godine jer nam treba 400e da se napijemo</div>
                 </div>
 
                 <!-- Photo 2 -->
                 <div class="photo-card">
                     <img src="gta2.jpeg" alt="Cruising Tomislav">
-                    <div class="photo-caption">Najbolji suvozač i hladni Tomislav. 🚗🍺</div>
+                    <div class="photo-caption">Ovako ces me vozikat u second handove dok ces pijuckat hladnji Tomislav.</div>
                 </div>
 
                 <!-- Photo 3 -->
                 <div class="photo-card">
                     <img src="gta3.jpeg" alt="Lounge Chill">
-                    <div class="photo-caption">Sobi & Deki chill zona (i tvoje najjače tigraste cipele) 🐅✨</div>
+                    <div class="photo-caption">Ovako cemo chillat na sljedecem putovanju (vidim Deki Popara te inspirirao za cokulice)</div>
                 </div>
 
             </div>
 
             <!-- Spotify Vice City Radio Station -->
             <div class="radio-section">
-                <h3 class="radio-title">GTA VI Radio station (Deki edition)</h3>
-                <iframe data-testid="embed-iframe" style="border-radius:12px; border: 2px solid #ff007f; box-shadow: 0 0 15px rgba(255, 0, 127, 0.5);" src="https://open.spotify.com/embed/playlist/59Jq3oL0pwxVICUexz8lSB?utm_source=generator&theme=0&si=11676e8aed1b4a1d" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <h3 class="radio-title">📻 GTA VI Radio station (Deki edition)</h3>
+                <iframe data-testid="embed-iframe" style="border-radius:12px; border: 2px solid #ff007f; box-shadow: 0 0 15px rgba(255, 0, 127, 0.5);" src="https://open.spotify.com/embed/playlist/59Jq3oL0pwxVICUexz8lSB?utm_source=generator&theme=0&si=11676e8aed1b4a1d" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
 
-            <div class="voucher">
-                <h2>GTA VI VOUCHER 🎮</h2>
-                <p>Ovaj kupon ti jamči 1 primjerak <strong>Grand Theft Auto VI</strong> čim izađe!</p>
+            <!-- Interactive Scratch-Off Voucher Section -->
+            <h2 class="scratch-title">GTA VI VOUCHER 🎮</h2>
+            <p style="color: #00f0ff; font-weight: 600; margin-bottom: 10px;">👇 Pređi mišem ili prstom preko kartice za otkriti kupon! 👇</p>
+            
+            <div class="scratch-container" id="scratch-box">
+                <img src="voucher.jpeg" alt="GTA VI Voucher" class="voucher-underneath" id="voucher-img">
+                <canvas id="scratch-canvas"></canvas>
             </div>
+
         </div>
     </div>
 
@@ -289,12 +314,67 @@
             fire(0.1, { spread: 120, startVelocity: 45, colors: ['#ff007f', '#ffffff'] });
         }
 
+        function initScratchCard() {
+            const canvas = document.getElementById('scratch-canvas');
+            const img = document.getElementById('voucher-img');
+            const ctx = canvas.getContext('2d');
+
+            function setupCanvas() {
+                canvas.width = img.clientWidth || img.width;
+                canvas.height = img.clientHeight || img.height;
+
+                // Metallic Silver/Purple Vice City Scratch Cover
+                const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+                grad.addColorStop(0, '#7928ca');
+                grad.addColorStop(0.5, '#2e0854');
+                grad.addColorStop(1, '#ff007f');
+
+                ctx.fillStyle = grad;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                // Scratch-off instruction text printed on the cover layer
+                ctx.font = 'bold 22px Pricedown, Impact, sans-serif';
+                ctx.fillStyle = '#ffffff';
+                ctx.textAlign = 'center';
+                ctx.fillText('⚡ STRUŽI OVDJE ZA OTKRITI KUPON ⚡', canvas.width / 2, canvas.height / 2);
+            }
+
+            if (img.complete) {
+                setupCanvas();
+            } else {
+                img.onload = setupCanvas;
+            }
+
+            let isDrawing = false;
+
+            function scratch(e) {
+                if (!isDrawing) return;
+                const rect = canvas.getBoundingClientRect();
+                const x = (e.clientX || (e.touches && e.touches[0].clientX)) - rect.left;
+                const y = (e.clientY || (e.touches && e.touches[0].clientY)) - rect.top;
+
+                ctx.globalCompositeOperation = 'destination-out';
+                ctx.beginPath();
+                ctx.arc(x, y, 30, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            canvas.addEventListener('mousedown', (e) => { isDrawing = true; scratch(e); });
+            canvas.addEventListener('mousemove', scratch);
+            window.addEventListener('mouseup', () => { isDrawing = false; });
+
+            canvas.addEventListener('touchstart', (e) => { isDrawing = true; scratch(e); });
+            canvas.addEventListener('touchmove', scratch);
+            window.addEventListener('touchend', () => { isDrawing = false; });
+        }
+
         function triggerMidnightReveal() {
             if (!revealTriggered) {
                 revealTriggered = true;
                 timerContainer.style.display = "none";
                 birthdayContent.style.display = "block";
                 launchViceCityConfetti();
+                setTimeout(initScratchCard, 200);
             }
         }
 
